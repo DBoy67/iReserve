@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ireserve;
+package ui;
 
 /**
  *
  * @author Tony Eriksson <Tony.Eriksson>
  */
-public class IReserve {
+public class IReserveMain {
 
     /**
      * @param args the command line arguments
