@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
 
 /**
  *
- * @author User
+ * @author SirhH
  */
 public class Food {
     private String name;
