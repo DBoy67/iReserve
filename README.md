@@ -1,2 +1,2 @@
-# iReserve2
-Airline booking system.
+# iReserve
+Airline booking system (School project)
