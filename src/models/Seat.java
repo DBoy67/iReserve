@@ -1,72 +1,65 @@
 package models;
 
 public class Seat {
-		
-		private int id;
-		private SeatStatus status;
-//	Seat[] seatplan;
-	int counter = 0;
-		
-		public Seat(int id){
-			this.id = id;
-			status = SeatStatus.Free;
-//			seatplan = new Seat[10];
-//			
-		}
-		
-		public int getId(){
-			return id;
-		
-		}
-		
-		
+
+	private int id;
+	private SeatStatus status;
+
+	/**
+	 * @param id
+	 */
+	public Seat(int id){
+		this.id = id;
+		status = SeatStatus.Free;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getId(){
+		return id;
+	}
+
+	/**
+	 * @return
+	 */
 	public SeatStatus isOccupied(){
 		return status;
-		
 	}
 
-	public SeatStatus setStatus(){
-		return status;
-		
-	}
-	public void addSeat(Seat newseat){
-		
-		
-		
-		
-//	for(int i = 0; i<seatplan.length ; i++){
-//		if (seatplan == null) {
-//			seatplan[counter]=newseat; 
-//			counter++;
-//		}
-//	}
-		
+	/**
+	 * @return
+	 */
+	public void setStatusOccupied(){
+		status = SeatStatus.Occupied;
 	}
 
+	/**
+	 * 
+	 */
+	public void setStatusFree(){
+		status = SeatStatus.Free;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "Seat [id=" + id + ", " + getId() + ", isOccupied()=" + isOccupied() + "]";
-	}
-
-
-	//////public void toggleOccupied(){
-	//////	
-	//
-//////		for (Seat seat : seatp){
-//////			if (seat!=null) {
-//////		addSeat(newseat);
-//////				
-//////			}
-//////			System.out.println("Do you want change class as this class is full");
-//////		}
-	////
-	////	
-////		//need seat list where seats are added to chk if seat free or occupied.	
-////				}
-			
-		
-
-		
-
+		return "Seat [id="  + getId() + ", isOccupied()=" + isOccupied() + "]";
 	}
 	
+
+/*	public static void main( String [] args){
+		Seat seat = new Seat(1);
+		System.out.println(seat.getId());
+		System.out.println(seat.isOccupied());
+		seat.setStatusOccupied();
+		System.out.println(seat.isOccupied());
+System.out.println(seat.toString());
+
+	}*/
+
+}
+
