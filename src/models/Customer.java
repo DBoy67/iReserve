@@ -4,19 +4,20 @@ package models;
 /**
  *
  * @author SirhH
+ * @author DBoy67
  */
 public class Customer {
-    private String name;
+    private String customerName;
     
-    public Customer(String name){
-        this.name=name;
+    public Customer(String customerName){
+        this.customerName = customerName;
     }
     
-    public String getName(){
-        return name;
+    public String getCustomerName(){
+        return customerName;
     }
     @Override
     public String toString(){
-        return "Customer: "+name;
+        return "Customer: " + customerName;
     }
 }
