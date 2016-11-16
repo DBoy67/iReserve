@@ -19,14 +19,13 @@ public class Ticket {
 			System.out.println("Invalid input");
 			break;
 		}
-
 	}
 
 	public String getTicketClass() {
 		return ticketClass;
 	}
-	
-	public double getTicketPrice(){
+
+	public double getTicketPrice() {
 		return ticketPrice;
 	}
 
