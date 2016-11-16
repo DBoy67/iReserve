@@ -2,28 +2,38 @@ package models;
 
 public class Seat {
 
-	private int id;
+	private Integer seatNo;
 	private SeatStatus status;
+	private TravelClass travelClass;
 
 	/**
 	 * @param id
 	 */
-	public Seat(int id){
-		this.id = id;
+	public Seat(Integer seatNo, TravelClass travelClass){
+		this.seatNo = seatNo;
+		this.travelClass = travelClass;
 		status = SeatStatus.FREE;
 	}
 
 	/**
 	 * @return
 	 */
-	public int getId(){
-		return id;
+	public Integer getSeatNo(){
+		return seatNo;
 	}
 
+	
+	/**
+	 * @param seatNo
+	 */
+	public void setSeatNo(Integer seatNo){
+		this.seatNo = seatNo ;
+	}
+	
 	/**
 	 * @return
 	 */
-	public SeatStatus isOccupied(){
+	public SeatStatus getSeatStatus(){
 		return status;
 	}
 
@@ -41,17 +51,16 @@ public class Seat {
 		status = SeatStatus.FREE;
 	}
 
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Seat [id="  + getId() + ", isOccupied()=" + isOccupied() + "]";
+		return "Seat [Seat No="  + getSeatNo()+ ", isOccupied()=" + getSeatStatus() + "]";
 	}
-	
 
-/*	public static void main( String [] args){
+
+	/*	public static void main( String [] args){
 		Seat seat = new Seat(1);
 		System.out.println(seat.getId());
 		System.out.println(seat.isOccupied());
