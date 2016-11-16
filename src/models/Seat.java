@@ -10,7 +10,7 @@ public class Seat {
 	 */
 	public Seat(int id){
 		this.id = id;
-		status = SeatStatus.Free;
+		status = SeatStatus.FREE;
 	}
 
 	/**
@@ -31,14 +31,14 @@ public class Seat {
 	 * @return
 	 */
 	public void setStatusOccupied(){
-		status = SeatStatus.Occupied;
+		status = SeatStatus.OCCUPIED;
 	}
 
 	/**
 	 * 
 	 */
 	public void setStatusFree(){
-		status = SeatStatus.Free;
+		status = SeatStatus.FREE;
 	}
 
 

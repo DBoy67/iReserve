@@ -2,6 +2,5 @@ package models;
 
 public enum SeatStatus {
 	
-	Free,Occupied;
-
+	FREE,OCCUPIED;
 }

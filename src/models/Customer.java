@@ -1,5 +1,6 @@
-
 package models;
+
+import java.util.UUID;
 
 /**
  *
@@ -8,13 +9,19 @@ package models;
  */
 public class Customer {
     private String customerName;
+    private String customerID;
     
     public Customer(String customerName){
+    	customerID = UUID.randomUUID().toString();
         this.customerName = customerName;
     }
     
     public String getCustomerName(){
         return customerName;
+    }
+    
+    public String getCustomerID(){
+    	return customerID;
     }
     @Override
     public String toString(){
