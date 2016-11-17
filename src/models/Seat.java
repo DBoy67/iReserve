@@ -4,6 +4,8 @@ public class Seat {
 
 	private int id;
 	private SeatStatus status;
+	private String firstClass;
+	private String economyClass;
 
 	/**
 	 * @param id
@@ -23,8 +25,37 @@ public class Seat {
 	/**
 	 * @return
 	 */
+	
 	public SeatStatus isOccupied(){
 		return status;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getFirstClass() {
+		return firstClass;
+	}
+
+	/**
+	 * @param firstClass
+	 */
+	public void setFirstClass(String firstClass) {
+		this.firstClass = firstClass;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getEconomyClass() {
+		return economyClass;
+	}
+
+	/**
+	 * @param economyClass
+	 */
+	public void setEconomyClass(String economyClass) {
+		this.economyClass = economyClass;
 	}
 
 	/**
@@ -49,17 +80,18 @@ public class Seat {
 	public String toString() {
 		return "Seat [id="  + getId() + ", isOccupied()=" + isOccupied() + "]";
 	}
-	
 
-/*	public static void main( String [] args){
+
+	public static void main( String [] args){
 		Seat seat = new Seat(1);
 		System.out.println(seat.getId());
 		System.out.println(seat.isOccupied());
 		seat.setStatusOccupied();
 		System.out.println(seat.isOccupied());
-System.out.println(seat.toString());
+		System.out.println(seat.toString());
+AirPlane airPlane = new AirPlane(1, 777);
 
-	}*/
+	}
 
 }
 

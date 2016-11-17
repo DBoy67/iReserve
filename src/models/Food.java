@@ -47,7 +47,7 @@ public class Food {
         return name+" : "+twoDeciamls.format(price)+"kr";
     }
     //for testData 
-    /*public static void main (String[] args){
+    public static void main (String[] args){
         Food [] foodItems = { 
             new Food("Warm Soup menu",49.90),
             new Food("Spaghetti",69.90),
@@ -59,5 +59,5 @@ public class Food {
         for(Food food: foodItems){
             System.out.println(food);
         }
-    }*/
+    }
 }
