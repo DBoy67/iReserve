@@ -94,6 +94,7 @@ public class Airplane {
 	}
 
 	/**
+	 * for test purpose
 	 * @param args
 	 */
 	public static void main(String []args){
