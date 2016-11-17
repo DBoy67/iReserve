@@ -1,5 +1,7 @@
 package models;
 
+import utilities.TravelClass;
+
 public class Seat {
 
 	private Integer seatNo;

@@ -5,6 +5,7 @@
  */
 package models;
 
+import utilities.TravelClass;
 import java.text.DecimalFormat;
 
 /**

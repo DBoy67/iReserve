@@ -1,5 +1,6 @@
 package models;
 
+import utilities.TravelClass;
 import java.util.HashMap;
 
 public class Airplane {
