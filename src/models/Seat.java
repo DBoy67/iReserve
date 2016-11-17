@@ -1,5 +1,6 @@
 package models;
 
+import utilities.SeatStatus;
 import utilities.TravelClass;
 
 public class Seat {

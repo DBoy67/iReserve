@@ -1,8 +1,9 @@
 
-package models;
+package utilities;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.CustomerCatalog;
 
 public class XMLList {
     
