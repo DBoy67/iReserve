@@ -1,7 +1,6 @@
 package models;
 
 //import java.util.ListIterator;
-import java.util.UUID;
 
 public class CustomerCatalog {
 
@@ -18,7 +17,6 @@ public class CustomerCatalog {
 
 	public CustomerCatalog(String custName) {
 		this.custName = custName;
-		this.customerID = UUID.randomUUID().toString();
 	}
 
 	public String getCustomerName() {

@@ -5,6 +5,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import models.CustomerCatalog;
+import models.Seat;
 import models.Ticket;
 
 /**
@@ -53,6 +54,7 @@ public class IReserveMain {
 						Ticket ticket = new Ticket(classChoice);
 						System.out.println("Ticket price is: " + numberFormatter.format(ticket.getTicketPrice()));
 						System.out.println("Checking for available seats in " + ticket.getTicketClass());
+						   
 					} else if (classChoice.equals("E")) {
 						Ticket ticket = new Ticket(classChoice);
 						System.out.println("Ticket price is: " + numberFormatter.format(ticket.getTicketPrice()));

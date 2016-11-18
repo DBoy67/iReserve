@@ -3,6 +3,10 @@ package models;
 import utilities.TravelClass;
 import java.util.HashMap;
 
+/**
+ * @author Surekha
+ *
+ */
 public class Airplane {
 
 	private int planeNo;
@@ -11,6 +15,11 @@ public class Airplane {
 
 	private HashMap<Integer, Seat> seatMap;
 
+	/**
+	 * @param planeNo
+	 * @param planeName
+	 * @param maxSeats
+	 */
 	public Airplane(int planeNo, String planeName, int maxSeats){
 		this.planeName = planeName ;
 		this.planeNo = planeNo;
@@ -18,43 +27,76 @@ public class Airplane {
 		seatMap = new HashMap<Integer, Seat>();
 	}
 
+	/**
+	 * @param planeNo
+	 */
 	public void setPlaneNo(int planeNo){
 		this.planeNo = planeNo;
 
 	}
 
+	/**
+	 * @return
+	 */
 	public int getPlaneNo(){
 		return planeNo;
 	}
 
+	/**
+	 * @param planeName
+	 */
 	public void setPlaneName(String planeName){
 		this.planeName = planeName;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getPlaneName(){
 		return planeName;
 	}
 
+	/**
+	 * @param maxSeats
+	 */
 	public void setMaxSeats(int maxSeats){
 		this.maxSeats = maxSeats;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getMaxSeats(){
 		return maxSeats;
 	}
 
+	/**
+	 * @return
+	 */
 	public HashMap<Integer, Seat> getSeats(){
 		return seatMap;
 	}
 
+	/**
+	 * @param seatNo
+	 * @param seat
+	 */
 	public void selectSeat(Integer seatNo , Seat seat){
 		seatMap.put(seatNo, seat);
 	}
 
+	/**
+	 * @param seatNo
+	 * @return
+	 */
 	public Seat getSeat(Integer seatNo){
 		return seatMap.get(seatNo);
 	}
 
+	/**
+	 * for test purpose
+	 * @param args
+	 */
 	public static void main(String []args){
 
 		Airplane airplane = new Airplane(1710, "boeing777", 10);
