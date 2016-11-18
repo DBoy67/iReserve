@@ -1,97 +1,75 @@
 package models;
 
+import utilities.SeatStatus;
+import utilities.TravelClass;
+
 public class Seat {
 
-	private int id;
+	private Integer seatNo;
 	private SeatStatus status;
-	private String firstClass;
-	private String economyClass;
+	private TravelClass travelClass;
 
 	/**
 	 * @param id
 	 */
-	public Seat(int id){
-		this.id = id;
-		status = SeatStatus.Free;
+	public Seat(Integer seatNo, TravelClass travelClass){
+		this.seatNo = seatNo;
+		this.travelClass = travelClass;
+		status = SeatStatus.FREE;
 	}
 
 	/**
 	 * @return
 	 */
-	public int getId(){
-		return id;
+	public Integer getSeatNo(){
+		return seatNo;
 	}
 
-	/**
-	 * @return
-	 */
 	
-	public SeatStatus isOccupied(){
+	/**
+	 * @param seatNo
+	 */
+	public void setSeatNo(Integer seatNo){
+		this.seatNo = seatNo ;
+	}
+	
+	/**
+	 * @return
+	 */
+	public SeatStatus getSeatStatus(){
 		return status;
 	}
 
 	/**
 	 * @return
 	 */
-	public String getFirstClass() {
-		return firstClass;
-	}
-
-	/**
-	 * @param firstClass
-	 */
-	public void setFirstClass(String firstClass) {
-		this.firstClass = firstClass;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getEconomyClass() {
-		return economyClass;
-	}
-
-	/**
-	 * @param economyClass
-	 */
-	public void setEconomyClass(String economyClass) {
-		this.economyClass = economyClass;
-	}
-
-	/**
-	 * @return
-	 */
 	public void setStatusOccupied(){
-		status = SeatStatus.Occupied;
+		status = SeatStatus.OCCUPIED;
 	}
 
 	/**
 	 * 
 	 */
 	public void setStatusFree(){
-		status = SeatStatus.Free;
+		status = SeatStatus.FREE;
 	}
-
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Seat [id="  + getId() + ", isOccupied()=" + isOccupied() + "]";
+		return "Seat [Seat No="  + getSeatNo()+ ", isOccupied()=" + getSeatStatus() + "]";
 	}
 
 
-	public static void main( String [] args){
+	/*	public static void main( String [] args){
 		Seat seat = new Seat(1);
 		System.out.println(seat.getId());
 		System.out.println(seat.isOccupied());
 		seat.setStatusOccupied();
 		System.out.println(seat.isOccupied());
-		System.out.println(seat.toString());
-AirPlane airPlane = new AirPlane(1, 777);
-
-	}
+System.out.println(seat.toString());
+	}*/
 
 }
-
