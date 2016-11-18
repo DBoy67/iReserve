@@ -6,6 +6,8 @@ import java.util.Scanner;
 import models.Airplane;
 
 import models.CustomerCatalog;
+import models.EconomyClassTicket;
+import models.FirstClassTicket;
 import models.Seat;
 import models.Ticket;
 
@@ -52,13 +54,13 @@ public class IReserveMain {
 					System.out.print("Please choose First Class or Economy Class (F/E): ");
 					classChoice = in.nextLine();
 					if (classChoice.equals("F")) {
-						Ticket ticket = new Ticket(classChoice);
+						Ticket ticket = new FirstClassTicket();
 						System.out.println("Ticket price is: " + numberFormatter.format(ticket.getTicketPrice()));
-						System.out.println("Checking for available seats in " + ticket.getTicketClass());					   
+						System.out.println("Checking for available seats in " + ticket.getTravelClass());					   
 					} else if (classChoice.equals("E")) {
-						Ticket ticket = new Ticket(classChoice);
+						Ticket ticket = new EconomyClassTicket();
 						System.out.println("Ticket price is: " + numberFormatter.format(ticket.getTicketPrice()));
-						System.out.println("Checking for available seats in " + ticket.getTicketClass());
+						System.out.println("Checking for available seats in " + ticket.getTravelClass());
 					}
 					System.out.println(" ");
 					System.out.println("Program ended.");
