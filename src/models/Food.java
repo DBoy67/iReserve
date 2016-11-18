@@ -56,7 +56,11 @@ public class Food {
 		DecimalFormat twoDeciamls = new DecimalFormat("0.00");
 		return name + " : " + twoDeciamls.format(price) + "kr";
 	}
+<<<<<<< HEAD
 	// for testData
+=======
+	 // for testData
+>>>>>>> branch 'master' of https://github.com/DBoy67/iReserve.git
 //	 public static void main (String[] args){
 //		 Food [] foodItems = {
 //				 new Food("Warm Soup menu",49.90, TravelClass.ECONOMY), 

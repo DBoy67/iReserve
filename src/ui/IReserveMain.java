@@ -3,6 +3,7 @@ package ui;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
+import models.Airplane;
 
 import models.CustomerCatalog;
 import models.Seat;
@@ -53,8 +54,7 @@ public class IReserveMain {
 					if (classChoice.equals("F")) {
 						Ticket ticket = new Ticket(classChoice);
 						System.out.println("Ticket price is: " + numberFormatter.format(ticket.getTicketPrice()));
-						System.out.println("Checking for available seats in " + ticket.getTicketClass());
-						   
+						System.out.println("Checking for available seats in " + ticket.getTicketClass());					   
 					} else if (classChoice.equals("E")) {
 						Ticket ticket = new Ticket(classChoice);
 						System.out.println("Ticket price is: " + numberFormatter.format(ticket.getTicketPrice()));
