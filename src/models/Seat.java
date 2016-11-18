@@ -5,36 +5,58 @@ import utilities.TravelClass;
 
 public class Seat {
 
-	private int seatNo;
-	private SeatStatus seatStatus;
+	private Integer seatNo;
+	private SeatStatus status;
 	private TravelClass travelClass;
 
-	public Seat(int seatNo, TravelClass travelClass){
+	/**
+	 * @param id
+	 */
+	public Seat(Integer seatNo, TravelClass travelClass){
 		this.seatNo = seatNo;
 		this.travelClass = travelClass;
-		seatStatus = SeatStatus.FREE;
+		status = SeatStatus.FREE;
 	}
 
-	public int getSeatNo(){
+	/**
+	 * @return
+	 */
+	public Integer getSeatNo(){
 		return seatNo;
 	}
+
 	
-	public void setSeatNo(int seatNo){
+	/**
+	 * @param seatNo
+	 */
+	public void setSeatNo(Integer seatNo){
 		this.seatNo = seatNo ;
 	}
 	
+	/**
+	 * @return
+	 */
 	public SeatStatus getSeatStatus(){
-		return seatStatus;
+		return status;
 	}
 
+	/**
+	 * @return
+	 */
 	public void setStatusOccupied(){
-		seatStatus = SeatStatus.OCCUPIED;
+		status = SeatStatus.OCCUPIED;
 	}
 
+	/**
+	 * 
+	 */
 	public void setStatusFree(){
-		seatStatus = SeatStatus.FREE;
+		status = SeatStatus.FREE;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Seat [Seat No="  + getSeatNo()+ ", isOccupied()=" + getSeatStatus() + "]";
@@ -48,10 +70,8 @@ public class Seat {
 		seat.setStatusOccupied();
 		System.out.println(seat.isOccupied());
 System.out.println(seat.toString());
+
 	}*/
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> branch 'master' of https://github.com/DBoy67/iReserve.git
+

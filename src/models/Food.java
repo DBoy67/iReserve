@@ -56,11 +56,19 @@ public class Food {
 		DecimalFormat twoDeciamls = new DecimalFormat("0.00");
 		return name + " : " + twoDeciamls.format(price) + "kr";
 	}
-<<<<<<< HEAD
 	// for testData
-=======
+//	 public static void main (String[] args){
+//		 Food [] foodItems = {
+//				 new Food("Warm Soup menu",49.90, TravelClass.ECONOMY), 
+//				 new Food("Spaghetti",69.90, TravelClass.ECONOMY),
+//				 new Food("Beef and fries menu",119.90,TravelClass.FIRST),
+//				 new Food("Double sandwich",39.90, TravelClass.BOTH),
+//				 new Food("Finest lobster menu", 139.90, TravelClass.FIRST),
+//				 new Food("Hot dog",29.90, TravelClass.ECONOMY)
+//				 };
+//	 
+//	 for(Food food: foodItems){ System.out.println(food); } }
 	 // for testData
->>>>>>> branch 'master' of https://github.com/DBoy67/iReserve.git
 //	 public static void main (String[] args){
 //		 Food [] foodItems = {
 //				 new Food("Warm Soup menu",49.90, TravelClass.ECONOMY), 
