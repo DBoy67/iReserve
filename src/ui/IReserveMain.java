@@ -10,12 +10,30 @@ import models.EconomyClassTicket;
 import models.FirstClassTicket;
 import models.Seat;
 import models.Ticket;
+import utilities.TravelClass;
 
 /**
  *
  * @author DBoy67
+ * @author SirhH
  */
 public class IReserveMain {
+    
+    private static void handleBooking(Ticket ticket, NumberFormat numberFormatter, Airplane airplane) {
+        if (ticket != null) {
+            System.out.println("Ticket price is: " + numberFormatter.format(ticket.getTicketPrice()));
+            System.out.println("Checking for available seats in " + ticket.getTravelClass());
+            if (airplane.getNextFreeSeat(TravelClass.FIRST) != null) {
+                Seat assignedSeat = airplane.getNextFreeSeat(TravelClass.FIRST);
+                System.out.println("You've been assigned: " + assignedSeat);
+                airplane.toggleSeatStatus(assignedSeat);
+                System.out.println("Seat status is now " + assignedSeat.getSeatStatus());
+            } else {
+                System.out.println("Sorry. This plane is fullbooked.");
+            }
+        }
+
+    }
 
 	public static void main(String[] args) {
 		int whatToDo = 0;
@@ -23,10 +41,21 @@ public class IReserveMain {
 		NumberFormat numberFormatter;
 		numberFormatter =
 		NumberFormat.getCurrencyInstance(Locale.forLanguageTag("sv-SE"));
-
+                Airplane airplane = new Airplane(0, "FirstPlane", 10);
+                //assigning seats in the airplane
+                //seatIds will be from 0-9 
+                //if 1-10 is wished for just write (i+1) in the to be the
+                //seatId in the Seat constructor
+                for(int i=0; i<10; i++){
+                    if(i<5){
+                        airplane.putSeat(i, new Seat(i, TravelClass.FIRST));
+                    }else{
+                        airplane.putSeat(i, new Seat(i, TravelClass.ECONOMY));
+                    }
+                }
 		
 		while (whatToDo != 8) {
-			System.out.println("Welcome. What do you want to do?");
+			System.out.println("Welcome to the Airlines booking service. What do you want to do?");
 
 			System.out.println("1. Book a flight.");
 			// System.out.println("2. Change class.");
@@ -52,20 +81,28 @@ public class IReserveMain {
 					System.out.println("Welcome " + customer.getCustomerName());
 					System.out.println(" ");
 					System.out.print("Please choose First Class or Economy Class (F/E): ");
-					classChoice = in.nextLine();
+					classChoice = in.nextLine().toUpperCase();
+                                        Ticket ticket=null;
 					if (classChoice.equals("F")) {
-						Ticket ticket = new FirstClassTicket();
-						System.out.println("Ticket price is: " + numberFormatter.format(ticket.getTicketPrice()));
-						System.out.println("Checking for available seats in " + ticket.getTravelClass());					   
+						ticket = new FirstClassTicket();
+                                                
 					} else if (classChoice.equals("E")) {
-						Ticket ticket = new EconomyClassTicket();
-						System.out.println("Ticket price is: " + numberFormatter.format(ticket.getTicketPrice()));
-						System.out.println("Checking for available seats in " + ticket.getTravelClass());
-					}
+						ticket = new EconomyClassTicket();
+						
+					}else{
+                                            System.out.println("Not a vaid command.");
+                                        }
+                                        handleBooking(ticket,numberFormatter,airplane);
 					System.out.println(" ");
 					System.out.println("Program ended.");
 					whatToDo = 8;
 					break;
+                                case 2: break;
+                                case 3: break;
+                                case 4: break;
+                                case 5: break;
+                                case 6: break;
+                                case 7: break;
 				case 8:
 					System.out.println("Ending program");
 					in.close();
@@ -77,6 +114,8 @@ public class IReserveMain {
 		}
 
 	}
+
+    
 }
 
 //
