@@ -4,7 +4,6 @@ import java.util.UUID;
 
 /**
  *
- * @author SirhH
  * @author DBoy67
  */
 public class Customer {
@@ -12,7 +11,7 @@ public class Customer {
     private String customerID;
     
     public Customer(String customerName){
-    	customerID = UUID.randomUUID().toString();
+    	this.customerID = UUID.randomUUID().toString();
         this.customerName = customerName;
     }
     
@@ -25,6 +24,6 @@ public class Customer {
     }
     @Override
     public String toString(){
-        return "Customer: " + customerName;
+        return "Customer: " + customerName + "CustomerID: " + customerID;
     }
 }
