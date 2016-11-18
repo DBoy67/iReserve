@@ -1,8 +1,8 @@
 package models;
 
-import utilities.*;
+import utilities.TravelClass;
 /**
-     * This classs takes everything from the Ticket class, there is no methods
+     * This class takes everything from the Ticket class, there is no methods
      * exclusive to this class yet.
      */
 public class FirstClassTicket extends Ticket {
