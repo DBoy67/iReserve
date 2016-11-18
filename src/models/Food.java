@@ -57,15 +57,15 @@ public class Food {
 		return name + " : " + twoDeciamls.format(price) + "kr";
 	}
 	 // for testData
-	 public static void main (String[] args){
-		 Food [] foodItems = {
-				 new Food("Warm Soup menu",49.90, TravelClass.ECONOMY), 
-				 new Food("Spaghetti",69.90, TravelClass.ECONOMY),
-				 new Food("Beef and fries menu",119.90,TravelClass.FIRST),
-				 new Food("Double sandwich",39.90, TravelClass.BOTH),
-				 new Food("Finest lobster menu", 139.90, TravelClass.FIRST),
-				 new Food("Hot dog",29.90, TravelClass.ECONOMY)
-				 };
-	 
-	 for(Food food: foodItems){ System.out.println(food); } }
+//	 public static void main (String[] args){
+//		 Food [] foodItems = {
+//				 new Food("Warm Soup menu",49.90, TravelClass.ECONOMY), 
+//				 new Food("Spaghetti",69.90, TravelClass.ECONOMY),
+//				 new Food("Beef and fries menu",119.90,TravelClass.FIRST),
+//				 new Food("Double sandwich",39.90, TravelClass.BOTH),
+//				 new Food("Finest lobster menu", 139.90, TravelClass.FIRST),
+//				 new Food("Hot dog",29.90, TravelClass.ECONOMY)
+//				 };
+//	 
+//	 for(Food food: foodItems){ System.out.println(food); } }
 }
