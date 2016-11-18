@@ -55,16 +55,16 @@ public class Airplane {
 		return seatMap.get(seatNo);
 	}
 
-	public static void main(String []args){
-
-		Airplane airplane = new Airplane(1710, "boeing777", 10);
-		Seat seat5 = new Seat(5, TravelClass.FIRST);
-		Seat seat2 = new Seat(2, TravelClass.ECONOMY);
-		airplane.selectSeat(5,seat5);
-		airplane.selectSeat(2, seat2);
-		System.out.println("is seat no 2 booked ? : " + airplane.seatMap.containsKey(2) );
-		System.out.println("is seat no 7 booked ? : " + airplane.seatMap.containsKey(7) );
-		System.out.println("Total seats booked in the plane : " +airplane.seatMap.size());
-
-	}
+//	public static void main(String []args){
+//
+//		Airplane airplane = new Airplane(1710, "boeing777", 10);
+//		Seat seat5 = new Seat(5, TravelClass.FIRST);
+//		Seat seat2 = new Seat(2, TravelClass.ECONOMY);
+//		airplane.selectSeat(5,seat5);
+//		airplane.selectSeat(2, seat2);
+//		System.out.println("is seat no 2 booked ? : " + airplane.seatMap.containsKey(2) );
+//		System.out.println("is seat no 7 booked ? : " + airplane.seatMap.containsKey(7) );
+//		System.out.println("Total seats booked in the plane : " +airplane.seatMap.size());
+//
+//	}
 }
