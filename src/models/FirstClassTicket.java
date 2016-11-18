@@ -1,22 +1,14 @@
 package models;
 
 import utilities.*;
-
-public abstract class FirstClassTicket {
-
-	private TravelClass ticketClass;
-	private double ticketPrice;
-
-	public TravelClass getTicketClass() {
-		return this.ticketClass;
-	}
-
-	/**
-	 * 
-	 * @param travelClass
-	 */
-	public FirstClassTicket(TravelClass travelClass) {
-
-	}
+/**
+     * This classs takes everything from the Ticket class, there is no methods
+     * exclusive to this class yet.
+     */
+public class FirstClassTicket extends Ticket {
+    
+    public FirstClassTicket() {
+        super(TravelClass.FIRST, 20_000);
+    }
 
 }
