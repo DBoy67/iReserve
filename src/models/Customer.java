@@ -7,24 +7,26 @@ import java.util.UUID;
  * @author SirhH
  * @author DBoy67
  */
-public class Customer {
+public class Customer implements CustomerInterface {
     private String customerName;
-    private String customerID;
+    private UUID customerID;
     
     public Customer(String customerName){
-    	customerID = UUID.randomUUID().toString();
         this.customerName = customerName;
+	this.customerID = UUID.randomUUID();
     }
     
+    @Override
     public String getCustomerName(){
         return customerName;
     }
     
-    public String getCustomerID(){
-    	return customerID;
-    }
     @Override
+    public String getCustomerID(){
+	return customerID.toString();
+    }
+    
     public String toString(){
-        return "Customer: " + customerName;
+        return "Customer: " + customerName + "CustomerID: " + customerID;
     }
 }

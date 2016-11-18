@@ -7,7 +7,7 @@ import java.util.HashMap;
  * @author Surekha
  *
  */
-public class Airplane {
+public class Airplane implements AirplaneInterface {
 
 	private int planeNo;
 	private String planeName;
@@ -30,6 +30,7 @@ public class Airplane {
 	/**
 	 * @param planeNo
 	 */
+    @Override
 	public void setPlaneNo(int planeNo){
 		this.planeNo = planeNo;
 
@@ -38,6 +39,7 @@ public class Airplane {
 	/**
 	 * @return
 	 */
+    @Override
 	public int getPlaneNo(){
 		return planeNo;
 	}
@@ -45,6 +47,7 @@ public class Airplane {
 	/**
 	 * @param planeName
 	 */
+    @Override
 	public void setPlaneName(String planeName){
 		this.planeName = planeName;
 	}
@@ -52,6 +55,7 @@ public class Airplane {
 	/**
 	 * @return
 	 */
+    @Override
 	public String getPlaneName(){
 		return planeName;
 	}
@@ -59,6 +63,7 @@ public class Airplane {
 	/**
 	 * @param maxSeats
 	 */
+    @Override
 	public void setMaxSeats(int maxSeats){
 		this.maxSeats = maxSeats;
 	}
@@ -66,6 +71,7 @@ public class Airplane {
 	/**
 	 * @return
 	 */
+    @Override
 	public int getMaxSeats(){
 		return maxSeats;
 	}
@@ -73,6 +79,7 @@ public class Airplane {
 	/**
 	 * @return
 	 */
+    @Override
 	public HashMap<Integer, Seat> getSeats(){
 		return seatMap;
 	}
@@ -81,6 +88,7 @@ public class Airplane {
 	 * @param seatNo
 	 * @param seat
 	 */
+    @Override
 	public void selectSeat(Integer seatNo , Seat seat){
 		seatMap.put(seatNo, seat);
 	}
@@ -89,6 +97,7 @@ public class Airplane {
 	 * @param seatNo
 	 * @return
 	 */
+    @Override
 	public Seat getSeat(Integer seatNo){
 		return seatMap.get(seatNo);
 	}
