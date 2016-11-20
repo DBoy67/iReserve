@@ -4,8 +4,9 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 import models.Airplane;
+import models.Booking;
 
-import models.bookingMap;
+import models.bookingList;
 import models.Seat;
 import models.Ticket;
 
@@ -20,7 +21,7 @@ public class Main {
 	Scanner in = new Scanner(System.in);
 	NumberFormat numberFormatter;
 	numberFormatter = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("sv-SE"));
-	Airplane airplane = new Airplane(1710);
+	Airplane airplane = new Airplane();
 
 	while (whatToDo != 8) {
 	    System.out.println("Welcome. What do you want to do?");
@@ -41,73 +42,22 @@ public class Main {
 
 		switch (whatToDo) {
 		    case 1:
-			String customerName;
+			String passengerName;
 			String classChoice;
-			String classChoice2;
 			String travelClass;
-			int seatNo;
 
 			System.out.print("Please enter your name : ");
-			customerName = in.nextLine();
-			System.out.println("Welcome " + customerName);
+			passengerName = in.nextLine();
+			Booking booking = new Booking(passengerName);
+			System.out.println("Welcome " + booking.getCustomerName());
 			System.out.println(" ");
 
 			System.out.print("Please choose First Class or Economy Class (F/E): ");
 			classChoice = in.nextLine();
-			switch (classChoice) {
-			    case "F":
-				if (airplane.getFCSeatMapSize() < 2) {
-				    seatNo = airplane.getFCSeatMapSize() + 1;
-				    airplane.addSeat(seatNo);
-				    System.out.println("You have been awarded seat no: " + seatNo);
-				    break;
-				} else if (airplane.getFCSeatMapSize() >= 2) {
-				    System.out.println("Sorry but there are no free seats in First Class.");
-				    System.out.println("Would you like to check in Economy class? (Y/N)");
-				    if (in.nextLine().equalsIgnoreCase("Y")) {
-					if (airplane.getECSeatMapSize() < 2) {
-					    seatNo = airplane.getECSeatMapSize() + 6;
-					    airplane.addSeat(seatNo);
-					    System.out.println("You have been awarded seat no: " + seatNo);
-					    break;
-					} else if (airplane.getECSeatMapSize() >= 2) {
-					    System.out.println("Sorry but it seems the plane is fully booked.");
-					    break;
+			System.out.println(airplane.getFCSeatListSize());
 
-					} else if (in.nextLine().equalsIgnoreCase("N")) {
-					    System.out.println("Very well. Welcome back");
-					    break;
 
-					}
-				    }
-				    break;
-				}
-			    case "E":
-				if (airplane.getECSeatMapSize() < 5) {
-				    seatNo = airplane.getECSeatMapSize() + 6;
-				    airplane.addSeat(seatNo);
-				    System.out.println("You have been awarded seat no: " + seatNo);
-				    break;
-				} else if (airplane.getECSeatMapSize() >= 5) {
-				    System.out.println("Sorry but there are no free seats in Economy Class.");
-				    System.out.println("Would you like to check in First class? (Y/N)");
-				    if (in.nextLine().equalsIgnoreCase("Y")) {
-					if (airplane.getFCSeatMapSize() < 5) {
-					    seatNo = airplane.getFCSeatMapSize() + 1;
-					    airplane.addSeat(seatNo);
-					    System.out.println("You have been awarded seat no: " + seatNo);
-					    break;
-					} else if (airplane.getFCSeatMapSize() >= 5) {
-					    System.out.println("Sorry but it seems the plane is fully booked.");
-					    break;
-					} else if (in.nextLine().equalsIgnoreCase("N")) {
-					    System.out.println("Very well. Welcome back");
-					    break;
-					}
-				    }
-				}
-			}
-			break;
+
 
 //			System.out.println("Food choice not implemented");
 //			Ticket ticket;
@@ -115,10 +65,10 @@ public class Main {
 //			System.out.println(" ");
 //			System.out.println("Program ended.");
 ////
-		    case 8:
-			System.out.println("Ending program");
-		        in.close();
-			break;
+//		    case 8:
+//			System.out.println("Ending program");
+//		        in.close();
+//			break;
 		}
 	    } catch (NumberFormatException nfe) {
 		System.out.println("Wrong input. Please choose a number from the menu.");

@@ -1,35 +1,36 @@
 package models;
 
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.List;
 
-public class bookingMap {
+public class bookingList {
 
     private Booking booking;
 
 
-    private TreeMap<String, Booking> bookingMap;
+    private List<Booking> bookingList;
 
-    public bookingMap() {
-	bookingMap = new TreeMap<String, Booking>();
+    public bookingList() {
+	bookingList = new ArrayList<>();
     }
 
 	public void addBooking(Booking newBooking) {
-		bookingMap.put(newBooking.getCustomerID(),newBooking);
+		bookingList.add(booking);
 	}
 	
-	public TreeMap<String,Booking> getBookingMap() {
-		return bookingMap;
+	public List<Booking> getBookingList() {
+		return bookingList;
 	}
 	
 	public int getNumberOfBookings() {
-		return bookingMap.size();
+		return bookingList.size();
 	}
 	
 	public Booking findBooking(String customerName) throws BookingNotFoundException
 	{
 		customerName = customerName.trim();
 		
-		for (Booking nextBooking: bookingMap.values()) {
+		for (Booking nextBooking: bookingList) {
 			if (nextBooking.getCustomerName().equalsIgnoreCase(customerName)) {
 				return nextBooking;
 			}

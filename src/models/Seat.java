@@ -1,36 +1,31 @@
 package models;
 
-import utilities.SeatStatus;
-import utilities.TravelClass;
-
 public class Seat {
 
 	private int seatNo;
-	private SeatStatus seatStatus;
-	private TravelClass travelClass;
+	private String seatStatus;
+	private String travelClass;
 
-	public Seat(int seatNo, TravelClass travelClass){
+	public Seat(int seatNo, String travelClass, String seatStatus){
 		this.seatNo = seatNo;
 		this.travelClass = travelClass;
-		seatStatus = SeatStatus.OCCUPIED;
+		this.seatStatus = seatStatus;
 	}
-
-	
 	
 	public int getSeatNo(){
 		return seatNo;
 	}
 	
-	public SeatStatus getSeatStatus(){
+	public String getSeatStatus(){
 		return seatStatus;
 	}
 
 	public void setStatusOccupied(){
-		seatStatus = SeatStatus.OCCUPIED;
+		seatStatus = "OCCUPIED";
 	}
 
 	public void setStatusFree(){
-		seatStatus = SeatStatus.FREE;
+		seatStatus = "FREE";
 	}
 
 	@Override

@@ -1,8 +1,7 @@
 package models;
 
-import java.util.HashMap;
-import java.util.Map;
-import utilities.SeatStatus;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Surekha
@@ -10,38 +9,51 @@ import utilities.SeatStatus;
  */
 public class Airplane {
 
-    private int planeNo;
-    private Map<Integer, SeatStatus> firstClassSeatMap;
-    private Map<Integer, SeatStatus> economyClassSeatMap;
+    private List<Seat> firstClassSeatList;
+    private List<Seat> economyClassSeatList;
+    private int seatNo;
 
-    public Airplane(int planeNo) {
-	this.planeNo = planeNo;
-	firstClassSeatMap = new HashMap<>();
-	economyClassSeatMap = new HashMap<>();
+    public Airplane() {
+	firstClassSeatList = new ArrayList<>();
+	economyClassSeatList = new ArrayList<>();
     }
 
-    public void addSeat(int seatNo){
-	firstClassSeatMap.put(seatNo, SeatStatus.OCCUPIED);
+    public int findFreeSeat(String travelClass) {
+	switch (travelClass) {
+	    case "F":
+		if (firstClassSeatList.size() < 6) {
+		    seatNo = firstClassSeatList.size();
+		    seatNo++;
+		    Seat seat = new Seat(seatNo, "First Class", "Occupied");
+		    addSeat(seat);
+		    break;
+		} else if (firstClassSeatList.size() >= 6) {
+		System.out.println("I am sorry. First Class is fully booked.");
+		System.out.print("Would you like to check for seats in Economy Class? (Y/N)");
+		break;
+	    }
+	}
+	return seatNo;
+    }
+
+    public void addSeat(Seat seat) {
+	firstClassSeatList.add(seat);
+    }
+
+    public int getFCSeatListSize() {
+	return firstClassSeatList.size();
+    }
+
+    public int getECSeatListSize() {
+	return economyClassSeatList.size();
+    }
+
+    public List<Seat> getFirstClassSeatList() {
+	return firstClassSeatList;
+    }
+
+    public List<Seat> getEconomyClassSeatList() {
+	return economyClassSeatList;
     }
     
-    public int getPlaneNo() {
-	return planeNo;
-    }
-    
-    public int getFCSeatMapSize(){
-	return firstClassSeatMap.size();
-    }
-  
-        public int getECSeatMapSize(){
-	return economyClassSeatMap.size();
-    }
-
-    public Map<Integer, SeatStatus> getFirstClassSeatMap() {
-	return firstClassSeatMap;
-    }
-
-    public Map<Integer, SeatStatus> getEconomyClassSeatMap() {
-	return economyClassSeatMap;
-    }
-
 }
