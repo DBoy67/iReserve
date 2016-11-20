@@ -12,15 +12,13 @@ public class Seat {
 	public Seat(int seatNo, TravelClass travelClass){
 		this.seatNo = seatNo;
 		this.travelClass = travelClass;
-		seatStatus = SeatStatus.FREE;
+		seatStatus = SeatStatus.OCCUPIED;
 	}
 
+	
+	
 	public int getSeatNo(){
 		return seatNo;
-	}
-	
-	public void setSeatNo(int seatNo){
-		this.seatNo = seatNo ;
 	}
 	
 	public SeatStatus getSeatStatus(){

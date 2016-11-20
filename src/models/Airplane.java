@@ -1,112 +1,47 @@
 package models;
 
-import utilities.TravelClass;
 import java.util.HashMap;
+import java.util.Map;
+import utilities.SeatStatus;
 
 /**
  * @author Surekha
- *
+ * @DBoy
  */
 public class Airplane {
 
-	private int planeNo;
-	private String planeName;
-	private int maxSeats;
+    private int planeNo;
+    private Map<Integer, SeatStatus> firstClassSeatMap;
+    private Map<Integer, SeatStatus> economyClassSeatMap;
 
-	private HashMap<Integer, Seat> seatMap;
+    public Airplane(int planeNo) {
+	this.planeNo = planeNo;
+	firstClassSeatMap = new HashMap<>();
+	economyClassSeatMap = new HashMap<>();
+    }
 
-	/**
-	 * @param planeNo
-	 * @param planeName
-	 * @param maxSeats
-	 */
-	public Airplane(int planeNo, String planeName, int maxSeats){
-		this.planeName = planeName ;
-		this.planeNo = planeNo;
-		this.maxSeats = maxSeats;
-		seatMap = new HashMap<Integer, Seat>();
-	}
+    public void addSeat(int seatNo){
+	firstClassSeatMap.put(seatNo, SeatStatus.OCCUPIED);
+    }
+    
+    public int getPlaneNo() {
+	return planeNo;
+    }
+    
+    public int getFCSeatMapSize(){
+	return firstClassSeatMap.size();
+    }
+  
+        public int getECSeatMapSize(){
+	return economyClassSeatMap.size();
+    }
 
-	/**
-	 * @param planeNo
-	 */
-	public void setPlaneNo(int planeNo){
-		this.planeNo = planeNo;
+    public Map<Integer, SeatStatus> getFirstClassSeatMap() {
+	return firstClassSeatMap;
+    }
 
-	}
+    public Map<Integer, SeatStatus> getEconomyClassSeatMap() {
+	return economyClassSeatMap;
+    }
 
-	/**
-	 * @return
-	 */
-	public int getPlaneNo(){
-		return planeNo;
-	}
-
-	/**
-	 * @param planeName
-	 */
-	public void setPlaneName(String planeName){
-		this.planeName = planeName;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getPlaneName(){
-		return planeName;
-	}
-
-	/**
-	 * @param maxSeats
-	 */
-	public void setMaxSeats(int maxSeats){
-		this.maxSeats = maxSeats;
-	}
-
-	/**
-	 * @return
-	 */
-	public int getMaxSeats(){
-		return maxSeats;
-	}
-
-	/**
-	 * @return
-	 */
-	public HashMap<Integer, Seat> getSeats(){
-		return seatMap;
-	}
-
-	/**
-	 * @param seatNo
-	 * @param seat
-	 */
-	public void selectSeat(Integer seatNo , Seat seat){
-		seatMap.put(seatNo, seat);
-	}
-
-	/**
-	 * @param seatNo
-	 * @return
-	 */
-	public Seat getSeat(Integer seatNo){
-		return seatMap.get(seatNo);
-	}
-
-	/**
-	 * for test purpose
-	 * @param args
-	 */
-	public static void main(String []args){
-
-		Airplane airplane = new Airplane(1710, "boeing777", 10);
-		Seat seat5 = new Seat(5, TravelClass.FIRST);
-		Seat seat2 = new Seat(2, TravelClass.ECONOMY);
-		airplane.selectSeat(5,seat5);
-		airplane.selectSeat(2, seat2);
-		System.out.println("is seat no 2 booked ? : " + airplane.seatMap.containsKey(2) );
-		System.out.println("is seat no 7 booked ? : " + airplane.seatMap.containsKey(7) );
-		System.out.println("Total seats booked in the plane : " +airplane.seatMap.size());
-
-	}
 }
