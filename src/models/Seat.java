@@ -1,62 +1,37 @@
 package models;
 
-import utilities.SeatStatus;
-import utilities.TravelClass;
-
 public class Seat {
 
-	private Integer seatNo;
-	private SeatStatus status;
-	private TravelClass travelClass;
+	private int seatNo;
+	private String seatStatus;
+	private String travelClass;
 
-	/**
-	 * @param id
-	 */
-	public Seat(Integer seatNo, TravelClass travelClass){
+	public Seat(int seatNo, String travelClass, String seatStatus){
 		this.seatNo = seatNo;
 		this.travelClass = travelClass;
-		status = SeatStatus.FREE;
+		this.seatStatus = seatStatus;
 	}
-
-	/**
-	 * @return
-	 */
-	public Integer getSeatNo(){
+	
+	public void changeSeatStatus(String status) {
+        this.seatStatus = seatStatus;
+	}
+	
+	public int getSeatNo(){
 		return seatNo;
 	}
-
 	
-	/**
-	 * @param seatNo
-	 */
-	public void setSeatNo(Integer seatNo){
-		this.seatNo = seatNo ;
-	}
-	
-	/**
-	 * @return
-	 */
-	public SeatStatus getSeatStatus(){
-		return status;
+	public String getSeatStatus(){
+		return seatStatus;
 	}
 
-	/**
-	 * @return
-	 */
 	public void setStatusOccupied(){
-		status = SeatStatus.OCCUPIED;
+		seatStatus = "OCCUPIED";
 	}
 
-	/**
-	 * 
-	 */
 	public void setStatusFree(){
-		status = SeatStatus.FREE;
+		seatStatus = "FREE";
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Seat [Seat No="  + getSeatNo()+ ", isOccupied()=" + getSeatStatus() + "]";
@@ -74,4 +49,3 @@ System.out.println(seat.toString());
 	}*/
 
 }
-
