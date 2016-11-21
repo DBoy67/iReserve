@@ -7,7 +7,7 @@ import models.Airplane;
 
 import models.CustomerCatalog;
 import models.Seat;
-import models.Ticket;
+//import models.Ticket;
 
 /**
  *
@@ -15,7 +15,7 @@ import models.Ticket;
  */
 public class IReserveMain {
 
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		int whatToDo = 0;
 		Scanner in = new Scanner(System.in);
 		NumberFormat numberFormatter;
@@ -74,7 +74,7 @@ public class IReserveMain {
 			}
 		}
 
-	}
+	}*/
 }
 
 //
