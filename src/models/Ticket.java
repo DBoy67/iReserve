@@ -1,7 +1,5 @@
 package models;
 
-import utilities.*;
-
 public class Ticket {
 
     private String ticketClass;
