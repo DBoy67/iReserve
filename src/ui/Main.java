@@ -1,14 +1,12 @@
 package ui;
 
+import models.BookedFullException;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
-import models.Airplane;
+import models.PassengerPlane;
 import models.Booking;
-
-import models.bookingList;
-import models.Seat;
-import models.Ticket;
+import models.IPlane;
 
 /**
  *
@@ -21,7 +19,8 @@ public class Main {
 	Scanner in = new Scanner(System.in);
 	NumberFormat numberFormatter;
 	numberFormatter = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("sv-SE"));
-	Airplane airplane = new Airplane();
+
+	IPlane passengerPlane = new PassengerPlane();
 
 	while (whatToDo != 8) {
 	    System.out.println("Welcome. What do you want to do?");
@@ -45,6 +44,7 @@ public class Main {
 			String passengerName;
 			String classChoice;
 			String travelClass;
+			int seatNo;
 
 			System.out.print("Please enter your name : ");
 			passengerName = in.nextLine();
@@ -54,21 +54,15 @@ public class Main {
 
 			System.out.print("Please choose First Class or Economy Class (F/E): ");
 			classChoice = in.nextLine();
-			System.out.println(airplane.getFCSeatListSize());
+			try {
+			    seatNo = passengerPlane.findFreeSeat(classChoice);
+			    System.out.println("Your seatnumber is: " + seatNo);
+			} catch (BookedFullException b) {
+			    System.out.println("Error: " + b);
 
+			}
+			
 
-
-
-//			System.out.println("Food choice not implemented");
-//			Ticket ticket;
-//		ticket = new Ticket(travelClass);
-//			System.out.println(" ");
-//			System.out.println("Program ended.");
-////
-//		    case 8:
-//			System.out.println("Ending program");
-//		        in.close();
-//			break;
 		}
 	    } catch (NumberFormatException nfe) {
 		System.out.println("Wrong input. Please choose a number from the menu.");
@@ -78,12 +72,3 @@ public class Main {
     }
 
 }
-
-//
-// System.out.print("Please choose First Class or Economy CLass (F/E): ");
-// Ticket ticket1 = new Ticket(in.nextLine());
-// System.out.println("You have chosen " + ticket1.getTicketClass() + " which
-// costs " + numberFormatter.format(ticket1.getTicketPrice()));
-//
-// in.close();
-// }

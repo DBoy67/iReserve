@@ -12,6 +12,10 @@ public class Seat {
 		this.seatStatus = seatStatus;
 	}
 	
+	public void changeSeatStatus(String status) {
+        this.seatStatus = seatStatus;
+	}
+	
 	public int getSeatNo(){
 		return seatNo;
 	}
