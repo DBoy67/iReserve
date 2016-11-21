@@ -62,16 +62,16 @@ public class Seat {
 		return "Seat [Seat No="  + getSeatNo()+ ", isOccupied()=" + getSeatStatus() + "]";
 	}
 
-
-	/*	public static void main( String [] args){
-		Seat seat = new Seat(1);
-		System.out.println(seat.getId());
-		System.out.println(seat.isOccupied());
-		seat.setStatusOccupied();
-		System.out.println(seat.isOccupied());
-System.out.println(seat.toString());
-
-	}*/
+//
+//	/*	public static void main( String [] args){
+//		Seat seat = new Seat(1);
+//		System.out.println(seat.getId());
+//		System.out.println(seat.isOccupied());
+//		seat.setStatusOccupied();
+//		System.out.println(seat.isOccupied());
+//System.out.println(seat.toString());
+//
+//	}*/
 
 }
 
