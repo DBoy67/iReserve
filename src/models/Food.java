@@ -5,7 +5,6 @@
  */
 package models;
 
-import utilities.TravelClass;
 import java.text.DecimalFormat;
 
 /**
@@ -15,9 +14,9 @@ import java.text.DecimalFormat;
 public class Food {
 	private String name;
 	private double price;
-	TravelClass travelClass;
+	String travelClass;
 
-	public Food(String name, double price, TravelClass travelClass) {
+	public Food(String name, double price, String travelClass) {
 		this.name = name;
 		this.price = price;
 		this.travelClass = travelClass;

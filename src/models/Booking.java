@@ -24,7 +24,6 @@ public class Booking {
 	this.dish = null;
 	this.ticketPrice = 0;
 	this.totalPrice = 0;
-
     }
 
     public String getCustomerName() {
@@ -87,6 +86,4 @@ public class Booking {
     public String toString() {
 	return "Booking{" + "customerName=" + customerName + ", customerID=" + customerID + ", travelClass=" + travelClass + ", seat=" + seat + ", dish=" + dish + ", ticketPrice=" + ticketPrice + ", totalPrice=" + totalPrice + '}';
     }
-
-
 }
