@@ -1,31 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package models;
 
 import utilities.TravelClass;
 
 /**
  *
- * @author Tony Eriksson <Tony.Eriksson>
+ * @author Sir H
  */
-public class Ticket {
-    
+public abstract class Ticket {
+
     private TravelClass travelClass;
     private double ticketPrice;
-    
-    public Ticket (TravelClass travelClass, double ticketPrice){
-	this.travelClass = travelClass;
-	this.ticketPrice = ticketPrice;
-    }
-    /**
-     * @return the ticketPrice
-     */
-    public double getTicketPrice() {
-	return ticketPrice;
+
+    public Ticket(TravelClass travelClass, double ticketPrice) {
+        this.travelClass=travelClass; 
+        this.ticketPrice=ticketPrice;
     }
 
-    /**
-     * @return the travelClass
-     */
-    public TravelClass getTicketClass() {
-	return travelClass;
+    public TravelClass getTravelClass() {
+        return travelClass;
+    }
+    public double getTicketPrice(){
+        return ticketPrice;
     }
 }
