@@ -24,6 +24,10 @@ public class Seat {
 	public Integer getSeatNo(){
 		return seatNo;
 	}
+        
+        public TravelClass getTravelClass(){
+            return travelClass;
+        }
 
 	
 	/**
@@ -59,7 +63,7 @@ public class Seat {
 	 */
 	@Override
 	public String toString() {
-		return "Seat [Seat No="  + getSeatNo()+ ", isOccupied()=" + getSeatStatus() + "]";
+		return "Seat [Seat No="  + getSeatNo()+ ", isOccupied()=" + getSeatStatus() + " Class=" +travelClass+"]";
 	}
 
 //
