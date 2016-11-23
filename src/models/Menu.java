@@ -34,14 +34,29 @@ public class Menu {
         menu.add(new Food("Water", 10.00,"Economy Class"));
 
     }
-    
+    /**
+     * This method returns the selected food from the Economy Class menu by
+     * the printed index number (1,2,3 and so on)
+     * @param index
+     * @return 
+     */
     public Food getFromEconomyClassMenu(int index){
         return this.getEconomyClassMenu().get(index-1);
     }
+    /**
+     * This method returns the selected food from the First Class menu by
+     * the printed index number (1,2,3 and so on)
+     * @param index
+     * @return 
+     */
     public Food getFromFirstClassMenu(int index){
         return this.getFirstClassMenu().get(index-1);
     }
     
+    /**
+     * Returns a uneditable copy of the Economy Class menu
+     * @return 
+     */
     public List<Food> getEconomyClassMenu(){
         List<Food> basic = new ArrayList<>();
         for(int i=6; i<menu.size(); i++){
@@ -49,11 +64,18 @@ public class Menu {
         }
         return Collections.unmodifiableList(basic);
     }
-    
+    /**
+     * Returns a uneditable copy of the First Class menu
+     * @return 
+     */
     public List<Food> getFirstClassMenu(){
         return Collections.unmodifiableList(menu);
     }
-    
+    /**
+     * Use insted of calling the toString method for printing the Economy Class
+     * menu.
+     * @return 
+     */
     public String EconomyClassMenutoString(){
         StringBuilder sb = new StringBuilder();
         int i=1;
@@ -66,6 +88,11 @@ public class Menu {
         }
         return sb.toString();
     }
+    /**
+     * Use insted of calling the toString method for printing the First Class
+     * menu.
+     * @return 
+     */
     public String FirstClassMenutoString(){
         StringBuilder sb = new StringBuilder();
         int i=1;
