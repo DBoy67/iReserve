@@ -58,6 +58,7 @@ public class BookerMain {
 
 			if (classChoice.contentEquals("F")) {
 			    freeSeat = flight.findFreeSeat(classChoice);
+
 			    if (freeSeat == true) {
 				seatNo = flight.setSeat(classChoice);
 				Seat seat = new Seat(seatNo, classChoice, "Occupied");
@@ -75,14 +76,12 @@ public class BookerMain {
 					Seat seat = new Seat(seatNo, classChoice, "Occupied");
 					booking.setSeat(seat);
 					System.out.println("Your seat nr in " + booking.getSeat().getClass() + " is: " + booking.getSeat().getSeatNo());
-
 				    } else if (wannaSwitchClass.contentEquals("N")) {
 					whatToDo = 8;
 				    }
 				}
+				break;
 			    }
-			    //System.out.println("Your seatnumber is: " + seatNo);
-			    break;
 			}
 
 		    case 8:
