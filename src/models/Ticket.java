@@ -1,30 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
-import utilities.TravelClass;
+public class Ticket {
 
-/**
- *
- * @author Sir H
- */
-public abstract class Ticket {
-
-    private TravelClass travelClass;
+    private String ticketClass;
     private double ticketPrice;
 
-    public Ticket(TravelClass travelClass, double ticketPrice) {
-        this.travelClass=travelClass; 
-        this.ticketPrice=ticketPrice;
+    public Ticket(String travelClass) {
+	if (travelClass.contentEquals("F")){
+	    ticketClass = "First Class";
+	    ticketPrice = 20000;
+	} else if (travelClass.contentEquals("E")){
+	    ticketClass = "Economy Class";
+	    ticketPrice = 20000;
+	}
     }
 
-    public TravelClass getTravelClass() {
-        return travelClass;
+    public double getTicketPrice() {
+	return ticketPrice;
     }
-    public double getTicketPrice(){
-        return ticketPrice;
+
+    public String getTicketClass() {
+	return ticketClass;
     }
+
+    @Override
+    public String toString() {
+	return "Ticket{" + "ticketClass=" + ticketClass + ", ticketPrice=" + ticketPrice + '}';
+    }
+
 }

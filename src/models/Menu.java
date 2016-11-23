@@ -9,6 +9,6 @@ package models;
  *
  * @author Tony Eriksson <Tony.Eriksson>
  */
-class CustomerNotFoundException extends Exception {
+public class Menu {
     
 }
