@@ -20,7 +20,7 @@ public class BookerMain {
 	Scanner in = new Scanner(System.in);
 	NumberFormat numberFormatter;
 	numberFormatter = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("sv-SE"));
-	IFlight flight = new Flight();
+	Flight flight = new Flight();
 
 	while (whatToDo != 8) {
 	    System.out.println("Welcome. What do you want to do?");
@@ -39,6 +39,9 @@ public class BookerMain {
 			String classChoice;
 			String travelClass;
 			boolean freeSeat;
+			boolean freeSeatFC = true;
+			boolean freeSeatEC = true;
+
 			int seatNo;
 			String wannaSwitchClass;
 
@@ -58,30 +61,42 @@ public class BookerMain {
 				Ticket ticket = new Ticket(classChoice);
 				seatNo = flight.setSeat(classChoice);
 				Seat seat = new Seat(seatNo, classChoice, "Occupied");
+				flight.selectSeat(seatNo, seat, ticket.getTicketClass());
 				booking.setSeat(seat);
 				booking.setTravelClass(ticket.getTicketClass());
 				booking.setTicketPrice(ticket.getTicketPrice());
 				System.out.println("Your seat nr in " + booking.getTravelClass() + " is " + booking.getSeat().getSeatNo() + " and the ticket price is " + numberFormatter.format(booking.getTicketPrice()));
+				System.out.println(" ");
 				break;
 			    } else if (freeSeat == false) {
-				System.out.println("Sorry. There are no free seats in First Class");
-				System.out.print("Would you like to check for free seats in Economy Class (Y/N)? ");
-				wannaSwitchClass = in.nextLine();
-				if (wannaSwitchClass.equalsIgnoreCase("Y")) {
-				    classChoice = "E";
-				    freeSeat = flight.findFreeSeat(classChoice);
-				    if (freeSeat == true) {
-					Ticket ticket = new Ticket(classChoice);
-					seatNo = flight.setSeat(classChoice);
-					Seat seat = new Seat(seatNo, classChoice, "Occupied");
-					booking.setSeat(seat);
-					booking.setTravelClass(ticket.getTicketClass());
-					booking.setTicketPrice(ticket.getTicketPrice());
-					System.out.println("Your seat nr in " + booking.getTravelClass() + " is " + booking.getSeat().getSeatNo() + " and the ticket price is " + numberFormatter.format(booking.getTicketPrice()));
-					break;
-				    } else if (wannaSwitchClass.equalsIgnoreCase("N")) {
-					System.out.println("Sorry but the the flight is fully booked.");
-					break;
+				if (flight.findFreeSeat("e") == false) {
+				    System.out.println("Sorry but the the flight is fully booked.");
+				    System.out.println(" ");
+				    break;
+				} else if (flight.findFreeSeat("e") == true) {
+				    System.out.println("Sorry. There are no free seats in First Class");
+				    System.out.print("Would you like to check for free seats in Economy Class (Y/N)? ");
+				    System.out.println(" ");
+				    wannaSwitchClass = in.nextLine();
+				    if (wannaSwitchClass.equalsIgnoreCase("Y")) {
+					classChoice = "E";
+					freeSeat = flight.findFreeSeat(classChoice);
+					if (freeSeat == true) {
+					    Ticket ticket = new Ticket(classChoice);
+					    seatNo = flight.setSeat(classChoice);
+					    Seat seat = new Seat(seatNo, classChoice, "Occupied");
+					    flight.selectSeat(seatNo, seat, ticket.getTicketClass());
+					    booking.setSeat(seat);
+					    booking.setTravelClass(ticket.getTicketClass());
+					    booking.setTicketPrice(ticket.getTicketPrice());
+					    System.out.println("Your seat nr in " + booking.getTravelClass() + " is " + booking.getSeat().getSeatNo() + " and the ticket price is " + numberFormatter.format(booking.getTicketPrice()));
+					    System.out.println(" ");
+					    break;
+					} else if (wannaSwitchClass.equalsIgnoreCase("N")) {
+					    System.out.println("Sorry but the the flight is fully booked.");
+					    System.out.println(" ");
+					    break;
+					}
 				    }
 				}
 			    }
@@ -92,30 +107,41 @@ public class BookerMain {
 				Ticket ticket = new Ticket(classChoice);
 				seatNo = flight.setSeat(classChoice);
 				Seat seat = new Seat(seatNo, classChoice, "Occupied");
+				flight.selectSeat(seatNo, seat, ticket.getTicketClass());
 				booking.setSeat(seat);
 				booking.setTravelClass(ticket.getTicketClass());
 				booking.setTicketPrice(ticket.getTicketPrice());
 				System.out.println("Your seat nr in " + booking.getTravelClass() + " is " + booking.getSeat().getSeatNo() + " and the ticket price is " + numberFormatter.format(booking.getTicketPrice()));
+				System.out.println(" ");
 				break;
 			    } else if (freeSeat == false) {
-				System.out.println("Sorry. There are no free seats in Economy Class");
-				System.out.print("Would you like to check for free seats in First Class (Y/N)? ");
-				wannaSwitchClass = in.nextLine();
-				if (wannaSwitchClass.equalsIgnoreCase("Y")) {
-				    classChoice = "F";
-				    freeSeat = flight.findFreeSeat(classChoice);
-				    if (freeSeat == true) {
-					Ticket ticket = new Ticket(classChoice);
-					seatNo = flight.setSeat(classChoice);
-					Seat seat = new Seat(seatNo, classChoice, "Occupied");
-					booking.setSeat(seat);
-					booking.setTravelClass(ticket.getTicketClass());
-					booking.setTicketPrice(ticket.getTicketPrice());
-					System.out.println("Your seat nr in " + booking.getTravelClass() + " is " + booking.getSeat().getSeatNo() + " and the ticket price is " + numberFormatter.format(booking.getTicketPrice()));
-					break;
-				    } else if (wannaSwitchClass.equalsIgnoreCase("N")) {
-					System.out.println("Sorry but the the flight is fully booked.");
-					break;
+				if (flight.findFreeSeat("f") == false) {
+				    System.out.println("Sorry but the the flight is fully booked.");
+				    System.out.println(" ");
+				    break;
+				} else if (flight.findFreeSeat("f") == true) {
+				    System.out.println("Sorry. There are no free seats in Economy Class");
+				    System.out.print("Would you like to check for free seats in First Class (Y/N)? ");
+				    wannaSwitchClass = in.nextLine();
+				    if (wannaSwitchClass.equalsIgnoreCase("Y")) {
+					classChoice = "F";
+					freeSeat = flight.findFreeSeat(classChoice);
+					if (freeSeat == true) {
+					    Ticket ticket = new Ticket(classChoice);
+					    seatNo = flight.setSeat(classChoice);
+					    Seat seat = new Seat(seatNo, classChoice, "Occupied");
+					    flight.selectSeat(seatNo, seat, ticket.getTicketClass());
+					    booking.setSeat(seat);
+					    booking.setTravelClass(ticket.getTicketClass());
+					    booking.setTicketPrice(ticket.getTicketPrice());
+					    System.out.println("Your seat nr in " + booking.getTravelClass() + " is " + booking.getSeat().getSeatNo() + " and the ticket price is " + numberFormatter.format(booking.getTicketPrice()));
+					    System.out.println(" ");
+					    break;
+					} else if (wannaSwitchClass.equalsIgnoreCase("N")) {
+					    System.out.println("Sorry but the the flight is fully booked.");
+					    System.out.println(" ");
+					    break;
+					}
 				    }
 				}
 			    }

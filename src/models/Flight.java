@@ -59,7 +59,7 @@ public class Flight implements IFlight {
         if (bookedSeatsTotal.containsKey(seatNo)) {
             return false;
         }
-        if ((seatNo > 0 && seatNo <= 5 && travelClass.equalsIgnoreCase("f")) || ((seatNo > 5 && seatNo <= 10) && travelClass.equalsIgnoreCase("e"))) {
+        if ((seatNo > 0 && seatNo <= 5 && travelClass.equalsIgnoreCase("f")) || ((seatNo > 6 && seatNo <= 10) && travelClass.equalsIgnoreCase("e"))) {
             return true;
         }
         return false;
