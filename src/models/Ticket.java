@@ -6,12 +6,12 @@ public class Ticket {
     private double ticketPrice;
 
     public Ticket(String travelClass) {
-	if (travelClass.contentEquals("F")){
+	if (travelClass.equalsIgnoreCase("f")){
 	    ticketClass = "First Class";
 	    ticketPrice = 20000;
-	} else if (travelClass.contentEquals("E")){
+	} else if (travelClass.equalsIgnoreCase("e")){
 	    ticketClass = "Economy Class";
-	    ticketPrice = 20000;
+	    ticketPrice = 5000;
 	}
     }
 
