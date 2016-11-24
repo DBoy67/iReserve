@@ -1,5 +1,6 @@
 package models;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -12,7 +13,7 @@ public class Booking {
     private String customerID;
     private String travelClass;
     private Seat seat;
-    private Food dish;
+    private List<Food> dishes;
     private double ticketPrice;
     private double totalPrice;
 
@@ -21,7 +22,7 @@ public class Booking {
 	this.customerName = customerName;
 	this.travelClass = "None";
 	this.seat = null;
-	this.dish = null;
+	this.dishes = null;
 	this.ticketPrice = 0;
 	this.totalPrice = 0;
     }
@@ -58,12 +59,15 @@ public class Booking {
 	this.seat = seat;
     }
 
-    public Food getDish() {
-	return dish;
+    public List<Food> getDish() {
+	return dishes;
+    }
+    public void setDishes(List<Food> menu){
+        dishes=menu;
     }
 
-    public void setDish(Food dish) {
-	this.dish = dish;
+    public void addDish(Food dish) {
+	dishes.add(dish);
     }
 
     public double getTicketPrice() {
@@ -75,7 +79,11 @@ public class Booking {
     }
 
     public double getTotalPrice() {
-	return totalPrice;
+        double total=ticketPrice;
+        for(Food food : dishes){
+            total+=food.getPrice();
+        }
+	return total;
     }
 
     public void setTotalPrice(double totalPrice) {
@@ -84,6 +92,6 @@ public class Booking {
 
     @Override
     public String toString() {
-	return "Booking{" + "customerName=" + customerName + ", customerID=" + customerID + ", travelClass=" + travelClass + ", seat=" + seat + ", dish=" + dish + ", ticketPrice=" + ticketPrice + ", totalPrice=" + totalPrice + '}';
+	return "Booking{" + "customerName=" + customerName + ", customerID=" + customerID + ", travelClass=" + travelClass + ", seat=" + seat + ", dish=" + dishes.toString() + ", ticketPrice=" + ticketPrice + ", totalPrice=" + totalPrice + '}';
     }
 }
