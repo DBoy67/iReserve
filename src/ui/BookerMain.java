@@ -23,7 +23,8 @@ public class BookerMain {
 
     private static void countProfit(Booking booking) {
         profit += booking.getTotalPrice();
-        System.out.println("Total company profit: " + (profit * 0.3));
+        System.out.println("Total company profit: " + (profit * 0.3)+ " kr.");
+	System.out.println("");
     }
 
     private static List<Food> handleMenu(String command) {
@@ -32,8 +33,7 @@ public class BookerMain {
         ArrayList<Food> bookedMenuForFirstClass = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Book a menu");
-        System.out.println("Menu: ");
+        System.out.println("Menu");
 
         switch (command) {
 
@@ -42,7 +42,7 @@ public class BookerMain {
 
 
                 System.out.println(m.FirstClassMenutoString());
-                System.out.println("Example: 1,2,3");
+		System.out.print("Choose a menu no: ");
                 String menuOrdering2 = sc.nextLine();
                 if (!menuOrdering2.equals("")) {
 
@@ -63,14 +63,14 @@ public class BookerMain {
                 for (Food food : bookedMenuForFirstClass) {
                     sum += food.getPrice();
                 }
-                System.out.println("Menu total :" + sum + "kr");
+                System.out.println("Menu total :" + sum + " kr");
+		System.out.println("");
                 return bookedMenuForFirstClass;
 
             //Economy Class
             case "e":
 
                 System.out.println(m.EconomyClassMenutoString());
-                System.out.println("Example: 1,2,3");
                 String menuOrdering1 = sc.nextLine();
                 if (!menuOrdering1.equals("")) {
 
@@ -93,7 +93,8 @@ public class BookerMain {
                 for (Food food : bookedMenuForEconomyClass) {
                     sum2 += food.getPrice();
                 }
-                System.out.println("Menu total :" + sum2 + "kr");
+                System.out.println("Menu total: " + sum2 + " kr");
+		System.out.println("");
                 return bookedMenuForEconomyClass;
         }
 
