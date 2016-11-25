@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+
 import models.Booking;
 import models.Flight;
 import models.Food;
@@ -14,15 +15,15 @@ import models.Seat;
 import models.Ticket;
 
 /**
- *
- * @author DBoy67
+ * @author DBoy67 - Main
+ * @author SirhH - Food & Profit
  */
 public class BookerMain {
     private static int profit;
-    
-    private static void countProfit(Booking booking){
-        profit+=booking.getTotalPrice();
-        System.out.println("Total company profit: "+(profit*0.3));
+
+    private static void countProfit(Booking booking) {
+        profit += booking.getTotalPrice();
+        System.out.println("Total company profit: " + (profit * 0.3));
     }
 
     private static List<Food> handleMenu(String command) {
@@ -30,7 +31,7 @@ public class BookerMain {
         ArrayList<Food> bookedMenuForEconomyClass = new ArrayList<>();
         ArrayList<Food> bookedMenuForFirstClass = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.println("Book a menu");
         System.out.println("Menu: ");
 
@@ -38,7 +39,7 @@ public class BookerMain {
 
             //First Class
             case "f":
-                
+
 
                 System.out.println(m.FirstClassMenutoString());
                 System.out.println("Example: 1,2,3");
@@ -59,15 +60,15 @@ public class BookerMain {
                 System.out.println("You have chosen: " + (!(menuOrdering2.equals("")) ? menuOrdering2 : "to not order any food"));
                 bookedMenuForFirstClass.forEach(System.out::println);
                 double sum = 0;
-                for(Food food : bookedMenuForFirstClass){
-                    sum+=food.getPrice();
+                for (Food food : bookedMenuForFirstClass) {
+                    sum += food.getPrice();
                 }
-                System.out.println("Menu total :"+ sum+"kr");
+                System.out.println("Menu total :" + sum + "kr");
                 return bookedMenuForFirstClass;
 
             //Economy Class
             case "e":
-                
+
                 System.out.println(m.EconomyClassMenutoString());
                 System.out.println("Example: 1,2,3");
                 String menuOrdering1 = sc.nextLine();
@@ -89,16 +90,16 @@ public class BookerMain {
                 System.out.println("You have chosen: " + (!(menuOrdering1.equals("")) ? menuOrdering1 : "to not order any food"));
                 bookedMenuForEconomyClass.forEach(System.out::println);
                 double sum2 = 0;
-                for(Food food : bookedMenuForEconomyClass){
-                    sum2+=food.getPrice();
+                for (Food food : bookedMenuForEconomyClass) {
+                    sum2 += food.getPrice();
                 }
-                System.out.println("Menu total :"+ sum2+"kr");
+                System.out.println("Menu total :" + sum2 + "kr");
                 return bookedMenuForEconomyClass;
         }
 
         //System.out.println(m.getFromEconomyClassMenu(1));
         //System.out.println(m.getFromFirstClassMenu(1));
-        
+
         return new ArrayList<>();
     }
 
@@ -229,8 +230,8 @@ public class BookerMain {
                                             booking.setTicketPrice(ticket.getTicketPrice());
                                             System.out.println("Your seat nr in " + booking.getTravelClass() + " is " + booking.getSeat().getSeatNo() + " and the ticket price is " + numberFormatter.format(booking.getTicketPrice()));
                                             System.out.println(" ");
-                                            booking.setDishes(handleMenu("f"));
-                                            countProfit(booking);
+                                                booking.setDishes(handleMenu("f"));
+                                                countProfit(booking);
                                             break;
                                         } else if (wannaSwitchClass.equalsIgnoreCase("N")) {
                                             System.out.println("Sorry but the the flight is fully booked.");
